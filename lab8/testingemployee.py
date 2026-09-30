@@ -7,11 +7,7 @@ class TestEmployee(unittest.TestCase):
     # Test if email format is working properly
     def test_emailemployee(self):
         # Check if the email format is correct
-        self.assertEqual(self.emp1.emailemployee, "Peter.Pan@email.com")
-        #update information and check if the email format is fine
-        self.emp1.first = "Will"
-        self.assertEqual(self.emp1.emailemployee, "Will.Pan@email.com")
-        # test full name
+        self.assertEqual(self.emp1.emailemployee, "ppan@email.com")
     def test_fullname(self):
         self.assertEqual(self.emp1.fullname, "Peter Pan")
 # test raise

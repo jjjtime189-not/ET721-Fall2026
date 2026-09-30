@@ -7,7 +7,7 @@ class Employee:
     # The @property decorator indicates that the emailemployee method will behave like an attribute
     @property
     def emailemployee(self):
-        return f"{self.first[0]}.{self.last}@email.com"
+        return f"{self.first[0].lower()}.{self.last}@email.com"
     @property
     def fullname(self):
         return f"{self.first} {self.last}"
