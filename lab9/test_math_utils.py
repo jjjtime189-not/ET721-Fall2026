@@ -26,5 +26,5 @@ def test_is_even(n, expected):
 @pytest.mark.parametrize(
     "password,truth",[("pass12345", True),("pass1", False),("testingpassword", False)]
 )
-def test_valid_password(password,truth):
+def test_password(password,truth):
     assert validate_password(password) is truth
