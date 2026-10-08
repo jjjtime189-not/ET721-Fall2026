@@ -30,7 +30,6 @@ class Connect4:
         """Drop a chip in the chosen column (1-7)."""
         if not (1 <= column <= self.COLS):
             return False
-
         for row in range(self.ROWS - 1, -1, -1):
             if self.board[row][column - 1] == ' ':
                 self.board[row][column - 1] = self.current_player
