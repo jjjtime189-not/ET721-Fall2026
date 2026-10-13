@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <title>Lab 10: intro to flash</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"
+</head>
+<body>
+    <h1>Welcome to Flask!</h1>
+    <h2>{username}</h2>
+    <h3>My list</h3>
+    <ul>
+        {% for eachfruit in listfruits %}
+            <li>{{eachfruit}}</li>
+            {% endfor %}
+    </ul>
+    {%if 'kiwis' in listfruits%}
+        <p>Great! We have kiwis today</p>
+    {% else %}
+        <p>kiwis is not in the list</p>
+    {% endif%}
+</body>
+</html>
