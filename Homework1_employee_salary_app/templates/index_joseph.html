@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <form action="/" method="POST">
+        <h1>EMPLOYEE NAME</h1>
+        <input type="text" name="name" id="name" required>
+        <h1>Employee ID</h1>
+        <input type="number" name="id" id="id" max="99" required>
+        <h1>Salary</h1>
+        <input type="number" name="salary" id="salary" max="999999" required>
+        <h1>Increase Salary</h1>
+        <input type="submit" value="Increase Salary">
+        {% if final_salary %}
+            <h1>The increase salary is $ {{ "{:.2f}".format(final_salary) }}</h1>
+        {% endif %}
+    </form>
+</html>
