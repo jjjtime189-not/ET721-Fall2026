@@ -23,14 +23,13 @@ def handle_item(item_id):
     elif request.method =="PUT":
         if not item:
             return render_template('error.html', message = "NOT FOUND", item =item), 404
-            data = request.get_json()
+        data = request.get_json()
         if not data:
             return jsonify({'error' : 'Invalid input'}), 400
-            items[item_id] = data
-            return render_template('update.html', item_id = item_id, item = data)
+        items[item_id] = data
+        return render_template('update.html', item_id = item_id, item = data)
     elif request.method == "DELETE":
         deleted_item = items.pop(item_id)
-        return render_template('delete.html', item_id = item_id,
-        deleted_item = deleted_item)
+        return render_template('delete.html', item_id = item_id, deleted_item = deleted_item)
 if __name__ == "__main__":
     app.run(debug=True)

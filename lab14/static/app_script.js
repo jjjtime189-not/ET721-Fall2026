@@ -13,3 +13,44 @@ itemForm.addEventListener("submit", async function(event){
         document.querySelector('#response').innerHTML = "Response:ERROR" + error
     }
 })
+async function loaditems() {
+    const res = await fetch("http://127.0.0.1:5000/items")
+    const data = await res.json()
+    const list = document.querySelector("#itemslist")
+    list.innerHTML = ""
+    for (const id in data) {
+        const item = data[id]
+        const li = document.createElement("li")
+        li.innerHTML = `
+        ID = ${id} | Name = ${item.name} | Price = ${item.price}
+        <button onclick = "showupdateform('${id}', '${item.name}','${item.price}')">Update</button>
+        <button onclick = "deleteitem('${id}')"> Delete </button>
+        `
+        list.appendChild(li)
+    }
+}
+function showupdateform(id, name, price) {
+    document.querySelector("#updatesection").style.display = "block"
+    document.querySelector("#updateID").value = id
+    document.querySelector("#updateName").value = name
+    document.querySelector("#updatePrice").value = price
+}
+async function updateItem() {
+    const id = document.querySelector("#updateID").value
+    const name = document.querySelector("#updateName").value
+    const price = document.querySelector("#updatePrice").value
+    const res = await fetch(`http://127.0.0.1:5000/items/${id}`, {
+        method: "PUT",
+        headers: { "Contenttype": "application/json" },
+        body: JSON.stringify({ name: name, price: Number(price) })
+    })
+    const html = await res.text()
+    document.body.innerHTML = html
+}
+async function deleteitem(id) {
+    const res = await fetch(`http://127.0.0.1:5000/items/${id}`, {
+        method: "DELETE",
+    })
+    const html = await res.text()
+    document.body.innerHTML = html
+}
