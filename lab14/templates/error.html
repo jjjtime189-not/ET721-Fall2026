@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="card">
+            <p class="eyebrow error-text">Error</p>
+            <h1>{{ title }}</h1>
+            <div class="summary">
+                <span class="status-badge status-error">Attention</span>
+                <p>{{ message }}</p>
+                {% if item_id %}
+                    <p><strong>Item ID:</strong> {{ item_id }}</p>
+                {% endif %}
+            </div>
+            <a href="/" class="button-link">Go Home</a>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if success %}Item Deleted{% else %}Delete Item{% endif %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="card">
+            <p class="eyebrow">Inventory</p>
+            {% if success %}
+                <h1>Item Deleted</h1>
+                <div class="summary">
+                    <span class="status-badge status-error">Deleted</span>
+                    <p><strong>Item ID:</strong> {{ item_id }}</p>
+                    <p><strong>Name:</strong> {{ deleted_item.get('name', 'N/A') }}</p>
+                    <p><strong>Price:</strong> {{ deleted_item.get('price', 'N/A') }}</p>
+                </div>
+                <a href="/" class="button-link">Back to Home</a>
+            {% else %}
+                <h1>Delete Item</h1>
+                <div class="summary">
+                    <p><strong>Item ID:</strong> {{ item_id }}</p>
+                    <p><strong>Name:</strong> {{ deleted_item.get('name', 'N/A') }}</p>
+                    <p><strong>Price:</strong> {{ deleted_item.get('price', 'N/A') }}</p>
+                </div>
+                <form method="POST" class="form-grid">
+                    <div class="button-row">
+                        <button type="submit">Confirm Delete</button>
+                        <a href="/" class="button-link secondary-btn">Cancel</a>
+                    </div>
+                </form>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

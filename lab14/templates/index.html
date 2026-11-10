@@ -4,27 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Item</title>
-    <link rel="stylesheet" href="{{url_for*('static', filename = 'style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1 class="title">Joseph Ali-Shaw</h1>
-    <h2>Create Item</h2>
-    <form id="itemform">
-        <div class="formsession">
-            <label>Name:
-                <input type="text" id="name" required>
-            </label>
-        </div>
-        <div class="formsession">
-            <label>Price:
-                <input type="text" id="price" required>
-            </label>
-        </div>
-        <div class="formsession">
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-    <p id="response"></p>
-    <script src="{{url_for('static', filename='app_script.js')}}"></script>
+    <main class="page-shell">
+        <section class="card">
+            <h1 class="title">Joseph Ali-Shaw</h1>
+            <p class="eyebrow">Inventory</p>
+            <h2>Create Item</h2>
+            <form id="itemForm" class="form-grid">
+                <div class="form-field">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-field">
+                    <label for="price">Price:</label>
+                    <input type="text" id="price" required>
+                </div>
+                <div class="button-row">
+                    <button type="submit">Submit</button>
+                    <button type="button" id="loadItemsBtn" class="secondary-btn">Load Items</button>
+                </div>
+            </form>
+            <p id="response" class="response-box"></p>
+            <div id="itemsList" class="items-list"></div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='app_script.js') }}"></script>
 </body>
 </html>

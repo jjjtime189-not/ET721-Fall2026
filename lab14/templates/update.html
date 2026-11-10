@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if success %}Item Updated{% else %}Update Item{% endif %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="card">
+            <p class="eyebrow">Inventory</p>
+            {% if success %}
+                <h1>Item Updated</h1>
+                <div class="summary">
+                    <span class="status-badge">Updated</span>
+                    <p><strong>Item ID:</strong> {{ item_id }}</p>
+                    <p><strong>Name:</strong> {{ item.get('name', 'N/A') }}</p>
+                    <p><strong>Price:</strong> {{ item.get('price', 'N/A') }}</p>
+                </div>
+                <div class="button-row">
+                    <a href="/" class="button-link">Back to Home</a>
+                    <a href="/items/{{ item_id }}/update" class="button-link secondary-btn">Edit Again</a>
+                </div>
+            {% else %}
+                <h1>Update Item</h1>
+                <form method="POST" class="form-grid">
+                    <div class="form-field">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" value="{{ item.get('name', '') }}" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="price">Price:</label>
+                        <input type="number" step="0.01" id="price" name="price" value="{{ item.get('price', '') }}" required>
+                    </div>
+                    <div class="button-row">
+                        <button type="submit">Save Changes</button>
+                        <a href="/" class="button-link secondary-btn">Cancel</a>
+                    </div>
+                </form>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
