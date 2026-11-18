@@ -32,3 +32,20 @@
     background-color: crimson;
     font-weight: bold;
 }
+.task_item{
+    background-color: #fff;
+    padding: 1rem;
+    border-bottom: solid #ddd 1px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+#taskList{
+    list-style-type: none;
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+    background-color: white;
+}
+.btndeletetask{
+    filter: opacity(0.7);
+    transform: scale(1.1);
+    font-weight: bold;
+}
