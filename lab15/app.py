@@ -52,7 +52,8 @@ def add_task():
                         (task,),
                     )
                     db.commit()
-            return jsonify({"status": "success"})
+                    task_id = cursor.lastrowid
+            return jsonify({"status": "success", "id": task_id, "task": task})
         except mysql.connector.Error as e:
             return jsonify({"error": str(e)}), 500
     return jsonify({"status": "error"}), 400

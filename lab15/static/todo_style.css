@@ -37,6 +37,9 @@
     padding: 1rem;
     border-bottom: solid #ddd 1px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 #taskList{
     list-style-type: none;
